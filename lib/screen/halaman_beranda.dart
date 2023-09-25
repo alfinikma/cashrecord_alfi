@@ -16,10 +16,7 @@ class _BerandaState extends State<Beranda> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.all(8),
-        color: Colors.white,
+      body: SingleChildScrollView(  
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -28,16 +25,36 @@ class _BerandaState extends State<Beranda> {
               height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(40.0),
-                  topLeft: Radius.circular(40.0),
-                ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(children: [
+                            Row(
+                              children: const [
+                               
+                                Text(
+                                  "Rangkuman Bulan Ini",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                          )
+                      ]
+                    ),
+
+                     const SizedBox(height: 25,),
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -58,7 +75,7 @@ class _BerandaState extends State<Beranda> {
                                 Text(
                                   "Pemasukan",
                                   style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -92,7 +109,7 @@ class _BerandaState extends State<Beranda> {
                                 Text(
                                   "Pengeluaran",
                                   style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -127,7 +144,7 @@ class _BerandaState extends State<Beranda> {
                             child: Text(
                               'Fitur CashRecord',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -141,7 +158,7 @@ class _BerandaState extends State<Beranda> {
                                   onTap: () => {
                                     Navigator.pushNamed(
                                       context,
-                                      Routes.login,
+                                      Routes.tambahPemasukan,
                                     )
                                   },
                                   child: Card(
@@ -175,7 +192,7 @@ class _BerandaState extends State<Beranda> {
                                   onTap: () => {
                                     Navigator.pushNamed(
                                       context,
-                                      Routes.login,
+                                      Routes.tambahPemasukan,
                   
                                     )
                                   },
@@ -218,7 +235,7 @@ class _BerandaState extends State<Beranda> {
                                   onTap: () => {
                                     Navigator.pushNamed(
                                       context,
-                                      Routes.login,
+                                      Routes.tambahPemasukan,
                                     )
                                   },
                                   child: Card(
@@ -252,7 +269,7 @@ class _BerandaState extends State<Beranda> {
                                   onTap: () => {
                                     Navigator.pushNamed(
                                       context,
-                                      Routes.login,
+                                      Routes.tambahPemasukan,
                   
                                     )
                                   },

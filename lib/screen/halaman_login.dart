@@ -1,5 +1,16 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: deprecated_member_use
 
+import 'dart:js';
+
+import 'package:flutter/material.dart';
+import 'package:cashrecord_alfi/screen/halaman_beranda.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
+
+
+String username='';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -10,6 +21,25 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+TextEditingController user = TextEditingController();
+TextEditingController pass = TextEditingController();
+
+  Future login(BuildContext cont)async{
+    var url = "http://localhost/cashrecord/login.php";
+    var response = await http.post(Uri.parse(url), body: {
+      "username" : user.text,
+      "password" : pass.text,
+    });
+
+    var data = json.decode(response.body);
+    if(data == "success"){
+      print(data);
+      Navigator.push(cont, MaterialPageRoute(builder: (context) => Beranda()));
+    }
+      }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,17 +54,6 @@ class _LoginState extends State<Login> {
             height: 200,
             width: 200,
             ),
-            // Container(
-            //  width: 200,
-            //  height: 200,
-            //  decoration: const BoxDecoration(
-            //    image: DecorationImage(
-            //      image: AssetImage('assets/images/logojpg.jpg'),
-            //       fit: BoxFit.fill,
-            //    ),
-            //    shape: BoxShape.circle,
-            //    ),
-           // ),
             
             const SizedBox(height: 20,),
 
@@ -43,6 +62,7 @@ class _LoginState extends State<Login> {
             const SizedBox(height: 40,),
 
             TextFormField(
+              controller: user,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(
@@ -59,6 +79,7 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 20,),
             
             TextFormField(
+              controller: pass,
               obscureText: true,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -74,7 +95,7 @@ class _LoginState extends State<Login> {
             ),
 
             const SizedBox(height: 20,),
-
+             
             Card(
               color: Colors.black87,
               elevation: 5,
@@ -82,13 +103,16 @@ class _LoginState extends State<Login> {
                 height: 50,
                 child: InkWell(
                   splashColor: Colors.white,
-                  onTap: () {},
+                  onLongPress: () {
+                    const Beranda();
+                    //login(context);
+                  },
                   child: const Center(
                     child: Text("Login", style: TextStyle(fontSize: 20, color: Colors.white),)
                     ),
                 ),
               ),
-            )
+            ),
               
           ],
           ),
