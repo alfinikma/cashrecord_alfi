@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class TambahPemasukan extends StatefulWidget {
+class TambahPengeluaran extends StatefulWidget {
 
-  const TambahPemasukan({Key? key}) : super(key: key);
+  const TambahPengeluaran({Key? key}) : super(key: key);
   @override
   // ignore: library_private_types_in_public_api
-  _TambahPemasukanState createState() => _TambahPemasukanState();
+  _TambahPengeluaranState createState() => _TambahPengeluaranState();
 }
 
-class _TambahPemasukanState extends State<TambahPemasukan> {
+class _TambahPengeluaranState extends State<TambahPengeluaran> {
   
 
   @override
@@ -26,7 +26,7 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
                     padding: EdgeInsets.only(top: 56),
                     child: Center(
                       child: Text(
-                        'Tambah Pemasukkan',
+                        'Tambah Pengeluaran',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.black,

@@ -1,13 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
 import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:cashrecord_alfi/screen/halaman_beranda.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
-import 'package:fluttertoast/fluttertoast.dart';
 
 
 String username='';
@@ -35,10 +33,9 @@ TextEditingController pass = TextEditingController();
     var data = json.decode(response.body);
     if(data == "success"){
       print(data);
-      Navigator.push(cont, MaterialPageRoute(builder: (context) => Beranda()));
+      Navigator.push(cont, MaterialPageRoute(builder: (context) => beranda()));
     }
       }
-
 
   @override
   Widget build(BuildContext context) {
@@ -97,15 +94,14 @@ TextEditingController pass = TextEditingController();
             const SizedBox(height: 20,),
              
             Card(
-              color: Colors.black87,
+              color: Colors.teal,
               elevation: 5,
               child: SizedBox(
                 height: 50,
                 child: InkWell(
                   splashColor: Colors.white,
-                  onLongPress: () {
-                    const Beranda();
-                    //login(context);
+                  onTap: () {                   
+                    login(context);
                   },
                   child: const Center(
                     child: Text("Login", style: TextStyle(fontSize: 20, color: Colors.white),)

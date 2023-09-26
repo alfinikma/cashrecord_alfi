@@ -1,6 +1,8 @@
+import 'package:cashrecord_alfi/screen/halaman_pengaturan.dart';
+import 'package:flutter/material.dart';
 import 'package:cashrecord_alfi/routes/routes.dart';
 import 'package:cashrecord_alfi/screen/tambah_pemasukan.dart';
-import 'package:flutter/material.dart';
+import 'package:cashrecord_alfi/screen/tambah_pengeluaran.dart';
 import 'package:cashrecord_alfi/screen/halaman_login.dart';
 import 'package:cashrecord_alfi/screen/halaman_beranda.dart';
 
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
         Routes.beranda: (context) => const Beranda(),
         Routes.login: (context) => const Login(),
         Routes.tambahPemasukan: (context) => const TambahPemasukan(),
+        Routes.tambahPengeluaran: (context) => const TambahPengeluaran(),
+        Routes.pengaturan: (context) => const Pengaturan(),
       },
        home: const Beranda(),
     );

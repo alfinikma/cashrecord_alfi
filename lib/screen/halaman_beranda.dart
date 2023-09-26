@@ -192,7 +192,7 @@ class _BerandaState extends State<Beranda> {
                                   onTap: () => {
                                     Navigator.pushNamed(
                                       context,
-                                      Routes.tambahPemasukan,
+                                      Routes.tambahPengeluaran,
                   
                                     )
                                   },
@@ -269,7 +269,7 @@ class _BerandaState extends State<Beranda> {
                                   onTap: () => {
                                     Navigator.pushNamed(
                                       context,
-                                      Routes.tambahPemasukan,
+                                      Routes.pengaturan,
                   
                                     )
                                   },
