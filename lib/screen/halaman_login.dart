@@ -1,14 +1,6 @@
-// ignore_for_file: deprecated_member_use
-
-import 'dart:js';
 import 'package:flutter/material.dart';
-import 'package:cashrecord_alfi/screen/halaman_beranda.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:convert';
+import '../routes/routes.dart';
 
-
-String username='';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -19,23 +11,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
-TextEditingController user = TextEditingController();
-TextEditingController pass = TextEditingController();
-
-  Future login(BuildContext cont)async{
-    var url = "http://localhost/cashrecord/login.php";
-    var response = await http.post(Uri.parse(url), body: {
-      "username" : user.text,
-      "password" : pass.text,
-    });
-
-    var data = json.decode(response.body);
-    if(data == "success"){
-      print(data);
-      Navigator.push(cont, MaterialPageRoute(builder: (context) => beranda()));
-    }
-      }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +34,7 @@ TextEditingController pass = TextEditingController();
             const SizedBox(height: 40,),
 
             TextFormField(
-              controller: user,
+        
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(
@@ -76,7 +51,7 @@ TextEditingController pass = TextEditingController();
               const SizedBox(height: 20,),
             
             TextFormField(
-              controller: pass,
+
               obscureText: true,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -101,7 +76,10 @@ TextEditingController pass = TextEditingController();
                 child: InkWell(
                   splashColor: Colors.white,
                   onTap: () {                   
-                    login(context);
+                    Navigator.pushNamed(
+                                      context,
+                                      Routes.beranda,
+                                    );
                   },
                   child: const Center(
                     child: Text("Login", style: TextStyle(fontSize: 20, color: Colors.white),)

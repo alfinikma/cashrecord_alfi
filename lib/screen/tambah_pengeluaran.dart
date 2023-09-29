@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../routes/routes.dart';
 
 class TambahPengeluaran extends StatefulWidget {
 
@@ -180,7 +181,10 @@ class _TambahPengeluaranState extends State<TambahPengeluaran> {
                         ),
                         InkWell(
                           onTap: () async {
-                           
+                           Navigator.pushNamed(
+                                      context,
+                                      Routes.detailCashFlow
+                                    );
                           },
                           child: Container(
                             decoration: BoxDecoration(

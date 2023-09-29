@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'halaman_login.dart';
 
 class Pengaturan extends StatefulWidget {
@@ -11,7 +10,6 @@ class Pengaturan extends StatefulWidget {
 }
 
 class _PengaturanState extends State<Pengaturan> {
-  
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class _PengaturanState extends State<Pengaturan> {
               child: Stack(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(top: 30),
+                    padding: EdgeInsets.only(top: 25),
                     child: Center(
                       child: Text(
                         'Pengaturan',

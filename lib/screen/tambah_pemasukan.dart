@@ -1,4 +1,8 @@
+import 'package:cashrecord_alfi/database/sql_helper.dart';
 import 'package:flutter/material.dart';
+
+import '../routes/routes.dart';
+
 
 class TambahPemasukan extends StatefulWidget {
 
@@ -9,10 +13,29 @@ class TambahPemasukan extends StatefulWidget {
 }
 
 class _TambahPemasukanState extends State<TambahPemasukan> {
+  TextEditingController tanggalController = TextEditingController();
+  TextEditingController nominalController = TextEditingController();
+  TextEditingController keteranganController = TextEditingController();
+
+  @override
+  void initState(){
+    refreshPemasukan();
+    super.initState();
+  }
+
+  //ambil data dari database
+  List<Map<String, dynamic>> pemasukan = [];
+  void refreshPemasukan() async{
+    final data = await SQLHelper.getPemasukan();
+    setState(() {
+      pemasukan = data;
+    });
+  }
   
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
      body: SingleChildScrollView(        
        child: Column(
@@ -51,6 +74,7 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
                 ],
               ),
             ),
+           
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -61,6 +85,7 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
                   topLeft: Radius.circular(40.0),
                 ),
               ),
+              
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(14, 56, 14, 16),
                 child: Column(
@@ -78,13 +103,10 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
                           color: Colors.black,
                         ),
                       ),
-                      child: TextFormField(
-                        onTap: () {
-                         
-                        },
+                      child: TextField(
                         cursorColor: Colors.black,
                         keyboardType: TextInputType.text,
-                        //controller: _dateController,
+                        controller: tanggalController,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           icon: Icon(
@@ -107,10 +129,10 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
                           color: Colors.black,
                         ),
                       ),
-                      child: TextFormField(
+                      child: TextField(
                         cursorColor: Colors.black,
                         keyboardType: TextInputType.number,
-                        //controller: _nominalController,
+                        controller: nominalController,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           icon: Text(
@@ -137,10 +159,10 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
                           color: Colors.black,
                         ),
                       ),
-                      child: TextFormField(
+                      child: TextField(
                         cursorColor: Colors.black,
                         keyboardType: TextInputType.text,
-                        //controller: _descriptionController,
+                        controller: keteranganController,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           icon: Icon(
@@ -179,8 +201,10 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
                           ),
                         ),
                         InkWell(
-                          onTap: () async {
-                           
+                          onTap: () async {                          
+                            Navigator.pushNamed(
+                                      context,
+                                      Routes.detailCashFlow);
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -214,7 +238,11 @@ class _TambahPemasukanState extends State<TambahPemasukan> {
      ),
     );
   }
-   
+   // fungsi add
+   Future<void> addPemasukan()async{
+    await SQLHelper.addPemasukan(tanggalController.text, nominalController.text, keteranganController.text);
+    refreshPemasukan();
+   }
 }
   
 

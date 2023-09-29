@@ -3,7 +3,7 @@ import 'package:cashrecord_alfi/routes/routes.dart';
 
 
 class Beranda extends StatefulWidget {
-
+  
   const Beranda({Key? key}) : super(key: key);
   @override
   // ignore: library_private_types_in_public_api
@@ -159,16 +159,17 @@ class _BerandaState extends State<Beranda> {
                                     Navigator.pushNamed(
                                       context,
                                       Routes.tambahPemasukan,
+                                      
                                     )
                                   },
                                   child: Card(
                                     elevation: 2.0,
                                     child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Column(
                                         children: [
                                           Image.asset(
-                                            'images/logo.png',
+                                            'images/pemasukan.png',
                                             width: 100,
                                           ),
                                           const Padding(
@@ -199,11 +200,11 @@ class _BerandaState extends State<Beranda> {
                                   child: Card(
                                     elevation: 2.0,
                                     child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Column(
                                         children: [
                                           Image.asset(
-                                            'images/logo.png',
+                                            'images/pengeluaran.png',
                                             width: 100,
                                           ),
                                           const Padding(
@@ -235,17 +236,17 @@ class _BerandaState extends State<Beranda> {
                                   onTap: () => {
                                     Navigator.pushNamed(
                                       context,
-                                      Routes.tambahPemasukan,
+                                      Routes.detailCashFlow,
                                     )
                                   },
                                   child: Card(
                                     elevation: 2.0,
                                     child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Column(
                                         children: [
                                           Image.asset(
-                                            'images/logo.png',
+                                            'images/cashFlow.png',
                                             width: 100,
                                           ),
                                           const Padding(
@@ -276,11 +277,11 @@ class _BerandaState extends State<Beranda> {
                                   child: Card(
                                     elevation: 2.0,
                                     child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Column(
                                         children: [
                                           Image.asset(
-                                            'images/logo.png',
+                                            'images/pengaturan.png',
                                             width: 100,
                                           ),
                                           const Padding(

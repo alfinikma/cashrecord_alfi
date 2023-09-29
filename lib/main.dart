@@ -1,3 +1,5 @@
+
+import 'package:cashrecord_alfi/screen/detail_cash_flow.dart';
 import 'package:cashrecord_alfi/screen/halaman_pengaturan.dart';
 import 'package:flutter/material.dart';
 import 'package:cashrecord_alfi/routes/routes.dart';
@@ -27,8 +29,10 @@ class MyApp extends StatelessWidget {
         Routes.tambahPemasukan: (context) => const TambahPemasukan(),
         Routes.tambahPengeluaran: (context) => const TambahPengeluaran(),
         Routes.pengaturan: (context) => const Pengaturan(),
+        Routes.detailCashFlow: (context) => const DetailCashFlow(),
+        
       },
-       home: const Beranda(),
+       home: const Login(),
     );
   }
 }
